@@ -1,0 +1,4 @@
+function _init()
+ counter = 299
+ cls(0)
+end
