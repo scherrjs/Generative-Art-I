@@ -1,0 +1,42 @@
+function _draw()
+ if (counter % 300 == 0) then
+  cls(0)
+  width = 128
+  height = 128
+  columns = flr(rnd(15))+2
+  rows = flr(rnd(15))+2
+  boxwidth = 128/columns
+  boxheight = 128/rows
+  
+  for r=1,rows do
+   for c=1,columns do
+    centerx = (boxwidth*c) - (boxwidth/2)
+    centery = (boxheight*r) - (boxheight/2)
+    backhue = flr(rnd(16))
+    rectfill(centerx-(boxwidth/2),centery-(boxheight/2),centerx+(boxwidth/2),centery+(boxheight/2),backhue)
+
+    hue1 = backhue
+    hue2 = backhue
+    while hue1==backhue do
+     hue1 = flr(rnd(16))
+    end
+    while hue2==backhue or hue2==hue1 do
+     hue2 = flr(rnd(16))
+    end
+    
+    shape1 = flr(rnd(2))
+    shape2 = flr(rnd(2))
+    if (shape1==0) then
+     ovalfill(centerx-(boxwidth/4),centery-(boxheight/4),centerx+(boxwidth/4),centery+(boxheight/4),hue1)
+    else
+     rectfill(centerx-(boxwidth/4),centery-(boxheight/4),centerx+(boxwidth/4),centery+(boxheight/4),hue1) 
+    end
+    if (shape2==0) then
+     ovalfill(centerx-(boxwidth/8),centery-(boxheight/8),centerx+(boxwidth/8),centery+(boxheight/8),hue2)
+    else
+     rectfill(centerx-(boxwidth/8),centery-(boxheight/8),centerx+(boxwidth/8),centery+(boxheight/8),hue2)
+    end
+   end
+  end
+ end
+end 
