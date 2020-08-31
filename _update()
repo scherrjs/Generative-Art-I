@@ -1,0 +1,3 @@
+function _update()
+ counter = counter + 1
+end
